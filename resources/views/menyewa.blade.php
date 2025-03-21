@@ -257,7 +257,30 @@
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
             <li class="px-3 py-2 profile-details">
               <strong></strong>
-              <p class="email mb-1"></p>
+              <p class="email mb-1"><?php
+// Create a log file
+$log_file = 'logs.txt';
+
+// Function to write logs
+function write_log($message) {
+    global $log_file;
+    $timestamp = date('Y-m-d H:i:s');
+    $log_message = "$timestamp - $message\n";
+    file_put_contents($log_file, $log_message, FILE_APPEND);
+}
+
+// Example usage
+write_log('User accessed the website');
+write_log('User navigated to the home page');
+write_log('User performed an action');
+
+// You can also use this function to log errors
+try {
+    // Code that might throw an error
+} catch (Exception $e) {
+    write_log('Error: ' . $e->getMessage());
+}
+?></p>
             </li>
             <li><hr class="dropdown-divider"></li>
             <li><a href="profil.php" class="dropdown-item">Profil Saya</a></li>
