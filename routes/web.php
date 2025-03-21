@@ -9,3 +9,6 @@ Route::get('/', function () {
 Route::get('/menyewa', function () {
     return view('menyewa');
 });
+Route::get('/home', function () {
+    return view('home');
+});
